@@ -1,3 +1,5 @@
+"use client";
+
 import BaseInfo from "@/components/elements/home/base-info/BaseInfo";
 import Calculator from "@/components/elements/home/calculator/Calculator";
 import PreparatoryWork from "@/components/elements/home/preparatory-work/PreparatoryWork";
@@ -9,8 +11,16 @@ import Openings from "@/components/elements/home/openings/Openings";
 import Engineering from "@/components/elements/home/engineering/Engineering";
 import DraftWork from "@/components/elements/home/draft-work/DraftWork";
 import FinishingWork from "@/components/elements/home/finishing-work/FinishingWork";
+import Image from "next/image";
 
 export default function HomePage() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="pb-20">
       <div id="calculator-section" className="pt-20">
@@ -37,6 +47,18 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-6 cursor-pointer right-6 h-14 w-14 bg-[#4174B9] rounded-full flex flex-row justify-center items-center shadow-lg hover:bg-[#3a6aa8] transition-colors duration-200 z-50"
+        aria-label="Scroll to top"
+      >
+        <Image
+          width={25}
+          height={25}
+          src={"/arrowhead-up.svg"}
+          alt={"Scroll to top"}
+        />
+      </button>
     </div>
   );
 }
